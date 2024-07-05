@@ -40,9 +40,13 @@ Given the marked Gröbner basis `MG` and a facet normal vector `v`, compute the 
 """
 function generic_step(MG::MarkedGroebnerBasis, v::Vector{ZZRingElem}, ord::MonomialOrdering)
   facet_generators = facet_initials(MG, v)
-  H = groebner_basis(
-    ideal(facet_generators); ordering=ord, complete_reduction=true, algorithm=:buchberger
-  )
+  
+  R = parent(facet_generators[1])
+  sR = singular_poly_ring(R, ord)
+  sI = Singular.Ideal(sR, sR.(facet_generators))
+
+  H = Singular.std(sI; complete_reduction=true)
+  H = Oscar.IdealGens(R.(gens(H)))
 
   @vprint :groebner_walk 5 "Initials forms of facet: "
   @vprintln :groebner_walk 5 facet_generators

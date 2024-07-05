@@ -73,6 +73,7 @@ standard_walk(
 ###############################################################
 
 function standard_step(G::Oscar.IdealGens, w::Vector{ZZRingElem}, target::MonomialOrdering)
+  R = base_ring(G)
   current_ordering = ordering(G)
   next = weight_ordering(w, target)
 
@@ -80,7 +81,11 @@ function standard_step(G::Oscar.IdealGens, w::Vector{ZZRingElem}, target::Monomi
   @vprint :groebner_walk 3 "GB of initial forms: "
   @vprintln :groebner_walk 3 Gw
 
-  H = groebner_basis(Gw; ordering=next, complete_reduction=true)
+  sR = singular_poly_ring(R, next)
+  sI = Singular.Ideal(sR, sR.(gens(G)))
+
+  H = Singular.std(sI; complete_reduction=true)
+  H = Oscar.IdealGens(R.(gens(H)))
   H = Oscar.groebner_lift(gens(H), next, gens(G), current_ordering)
 
   @vprint :groebner_walk 10 "Lifted GB of initial forms: "

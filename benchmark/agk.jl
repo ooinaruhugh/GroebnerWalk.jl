@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 using Oscar
 
 function agk4(k::Field)

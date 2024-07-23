@@ -2,16 +2,14 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11065978.svg)](https://doi.org/10.5281/zenodo.11065978)
 
-GroebnerWalk.jl is a Julia package providing implementations of Gröbner walk algorithms
-for computing Gröbner bases over fields on top of Oscar.jl.
+GroebnerWalk provides implementations of Gröbner walk algorithms
+for computing Gröbner bases over fields in Oscar.jl.
 
 ## Usage
 
-GroebnerWalk.jl provides its entire functionality through the function `groebner_walk`.
-The following example demonstrates the usage. First, we define the ideal Oscar.jl.
+GroebnerWalk provides its entire functionality through the function `groebner_walk`.
+The following example demonstrates the usage. First, we define the ideal.
 ```julia
-using Oscar
-
 R, (x,y) = QQ[:x, :y]                  # define ring ...
 I = ideal([y^4+ x^3-x^2+x,x^4])        # ... and ideal
 ```
@@ -19,14 +17,13 @@ I = ideal([y^4+ x^3-x^2+x,x^4])        # ... and ideal
 Then, we can pass the ideal to `groebner_walk` to calculate the Gröbner basis.
 Here, we want a Gröbner basis with respect to the lexicographic ordering on `R`.
 ```julia
-using GroebnerWalk
+using Oscar
+using Oscar.GroebnerWalk
 
 groebner_walk(I, lex(R)) # compute the Groebner basis
 ```
 
 ## Status
-This repository represents the status of the code as a submission for MEGA 2024. It is slated for inclusion into OSCAR as experimental package.
-
 At the moment, the standard walk by Collart, Kalkbrener and Mall (1997) and the generic walk by Fukuda et al. are implemented.
 
 ## Contacts

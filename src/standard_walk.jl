@@ -100,7 +100,7 @@ function initial_form(f::MPolyRingElem, w::Vector{ZZRingElem})
 
   ctx = MPolyBuildCtx(R)
 
-  E = exponent_vectors(f)
+  E = exponents(f)
   WE = dot.(Ref(w), Vector{ZZRingElem}.(E))
   maxw = -inf
 
@@ -169,10 +169,9 @@ function bounding_vectors(I::Oscar.IdealGens)
   # TODO: Marked Gröbner basis
   gens_by_terms = terms.(I; ordering=ordering(I))
   
-  v = [
-    [leading_exponent_vector(lead) - leading_exponent_vector(t) for t in tail]
-    for (lead, tail) in Iterators.peel.(gens_by_terms)
-  ]
+  v = map(Iterators.peel.(gens_by_terms)) do (lead,tail)
+      Ref(leading_exponent_vector(lead)) .- leading_exponent_vector.(tail)
+  end
 
   return unique!(reduce(vcat, v))
 end

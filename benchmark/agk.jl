@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 using Oscar
 
 function agk4(k::Field)
@@ -14,3 +15,4 @@ function agk4(k::Field)
 
     return ideal(F), o2, o1
 end
+

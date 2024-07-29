@@ -81,7 +81,7 @@ function groebner_walk(
   I::MPolyIdeal, 
   target::MonomialOrdering = lex(base_ring(I)),
   start::MonomialOrdering = default_ordering(base_ring(I));
-  perturbation_degree = ngens(base_ring(I)), # meaning, n=#gens(R)
+  perturbation_degree = ngens(base_ring(I)),
   algorithm::Symbol = :standard
 )
   if algorithm == :standard

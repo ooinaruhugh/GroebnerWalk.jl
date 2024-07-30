@@ -2,12 +2,13 @@ module GroebnerWalk
 using Oscar
 
 import Oscar: 
-  weight_ordering, 
-  ZZRingElem, 
-  MonomialOrdering, 
-  ZZMatrix, 
   IdealGens, 
-  ngens
+  MonomialOrdering, 
+  ngens,
+  weight_ordering, 
+  ZZMatrix, 
+  ZZRingElem 
+
 
 import Oscar.Orderings: 
   MatrixOrdering, 

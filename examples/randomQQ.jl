@@ -1,8 +1,6 @@
 #random polynomial system in 4 variables over Q, computed in M2 
 using Oscar
-using GroebnerWalk
 R, (a, b, c, d)  = polynomial_ring(QQ, ["a", "b", "c", "d"])
-
 
 f1 = 15013d^3 + 5213*c*d^2 + 15893*c^2*d - 2837*b*d^2 - 10238*c^3 + 13538*b*c*d - 4578*a*d^2 + 5035*b*c^2 +
 -9975*b^2*d - 9777*a*c*d - 2177*b^2*c + 9963*a*c^2 - 15569*a*b*d + 2513*b^3 - 3108*a*b*c - 9437*a^2*d - 5291*a*b^2 -
@@ -22,11 +20,11 @@ I = ideal([f1, f2, f3])
 Gdegrevlex = groebner_basis(I, complete_reduction = true)
 set_verbosity_level(:groebner_walk, 1)
 
-t_b = @elapsed Gb = groebner_basis(I, ordering = lex(R), complete_reduction = true) #8.6s
+t_b = @time Gb = groebner_basis(I, ordering = lex(R), complete_reduction = true) #8.6s
 
-t_s = @elapsed Gs = groebner_walk(I, lex(R), algorithm =:standard) #11.3, one conversion
+t_s = @time Gs = groebner_walk(I, lex(R), algorithm =:standard) #11.3, one conversion
 
-t_g = @elapsed Gg = groebner_walk(I, lex(R), algorithm =:generic) #14.4
+t_g = @time Gg = groebner_walk(I, lex(R), algorithm =:generic) #14.4
 
-t_p = @elapsed Gp = groebner_walk(I, lex(R), algorithm =:perturbed) #11.49
+t_p = @time Gp = groebner_walk(I, lex(R), algorithm =:perturbed) #11.49
 

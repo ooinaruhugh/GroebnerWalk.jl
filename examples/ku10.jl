@@ -1,8 +1,7 @@
 #ku
 using Oscar
-using GroebnerWalk 
 
-R, (x1, x2, x3, x4, x5, x6, x7, x8, x9, x10) = polynomial_ring(QQ, ["x$index" for index in 1:10])
+R, (x1, x2, x3, x4, x5, x6, x7, x8, x9, x10) = polynomial_ring(QQ, "x#" => 1:10)
 
 I = ideal([
   5*x1*x2+ 5*x1+ 3*x2+ 55,
@@ -19,7 +18,7 @@ I = ideal([
 
 set_verbosity_level(:groebner_walk, 1)
 
-t_s = @elapsed Gs = groebner_walk(I, lex(R), algorithm =:standard) 
-t_g = @elapsed Gg = groebner_walk(I, lex(R), algorithm =:generic) 
-t_p = @elapsed Gp = groebner_walk(I, lex(R), algorithm =:perturbed) 
-
+t_s = @time Gs = groebner_walk(I, lex(R), algorithm =:standard) 
+t_g = @time Gg = groebner_walk(I, lex(R), algorithm =:generic) 
+t_p = @time Gp = groebner_walk(I, lex(R), algorithm =:perturbed) 
+t_b = @time Gb = groebner_basis(I, ordering=lex(R)) 

@@ -1,6 +1,4 @@
 using Oscar 
-using Oscar.GroebnerWalk
-
 
 #The generic walk currently doesn't work (type conflicts)
 #This example tests "new_next_gamma"

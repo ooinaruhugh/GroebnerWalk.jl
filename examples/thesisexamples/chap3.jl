@@ -3,15 +3,12 @@
 #Examples from chapter 3
 
 using Oscar 
-using GroebnerWalk
-
 
 #We perform computations on the same ideal throughout
 
 R, (x,y,z) = polynomial_ring(QQ, ["x","y","z"])
 
 set_verbosity_level(:groebner_walk, 1)
-
 
 I = ideal([x^2 + y*z, x*y + z^2])
 os = lex(R)

@@ -1,13 +1,8 @@
 # "custom" integer knapsack problem
 
 using Oscar 
-using GroebnerWalk
+
 R, (t, x1, x2, x3, x4, x5) = polynomial_ring(QQ, ["t","x1", "x2", "x3", "x4", "x5"])
-
-
-
-
-
 
 f1 = x1 - t^329221
 f2 = x2 - t^214884

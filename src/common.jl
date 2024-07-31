@@ -135,7 +135,7 @@ Replaces every element of G by the normal form with respect to the remaining ele
 function autoreduce(G::Oscar.IdealGens)
   generators = collect(gens(G))
 
-  for i in 1:length(gens(G))
+  for i in 1:length(G)
     generators[i] = reduce(
       generators[i], generators[1:end .!= i]; ordering=G.ord, complete_reduction=true
     )

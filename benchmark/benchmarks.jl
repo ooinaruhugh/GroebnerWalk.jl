@@ -3,10 +3,8 @@ using GroebnerWalk
 using BenchmarkTools
 
 include("cyclic.jl")
-include("katsura.jl")
 include("agk.jl")
 include("tran3.3.jl")
-include("newellp1.jl")
 
 function benchmark(
   io,
@@ -62,7 +60,7 @@ open("results.csv", "a") do io
   benchmark(io, "tran3.3-QQ", tran33(QQ)...)
   benchmark(io, "tran3.3-Fp", tran33(Fp)...)
 
-  benchmark(io, "newellp1-QQ", newellp1(QQ)...)
-  benchmark(io, "newellp1-Fp", newellp1(Fp)...)
+  benchmark(io, "newellp1-QQ", Oscar.newell_patch_with_orderings(QQ)...)
+  benchmark(io, "newellp1-Fp", Oscar.newell_patch_with_orderings(Fp)...)
 end
 

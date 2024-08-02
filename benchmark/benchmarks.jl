@@ -60,7 +60,7 @@ open("results.csv", "a") do io
   benchmark(io, "tran3.3-QQ", tran33(QQ)...)
   benchmark(io, "tran3.3-Fp", tran33(Fp)...)
 
-  benchmark(io, "newellp1-QQ", Oscar.newell_patch_with_orderings(QQ)...)
-  benchmark(io, "newellp1-Fp", Oscar.newell_patch_with_orderings(Fp)...)
+  benchmark(io, "newellp1-QQ", newell_patch_with_orderings(QQ)...)
+  benchmark(io, "newellp1-Fp", newell_patch_with_orderings(Fp)...)
 end
 

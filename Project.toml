@@ -4,5 +4,7 @@ authors = ["Kamillo Ferry <kafe@kafe.dev>", "Francesco Nowell <francesconowell@g
 version = "1.0.1"
 
 [deps]
+AbstractAlgebra = "c3fe647b-3220-5bb0-a1ea-a7954cac585d"
 BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
 Oscar = "f1435218-dba5-11e9-1e4d-f1a5fab5fc13"
+Singular = "bcd08a7b-43d2-5ff7-b6d4-c458787f915c"

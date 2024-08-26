@@ -24,6 +24,9 @@ include("generic_walk.jl")
 include("perturbed_walk.jl")
 
 export groebner_walk
+export groebner_walk_with_detection
+
+function groebner_walk_with_detection end
 
 export newell_patch
 export newell_patch_with_orderings

@@ -1,5 +1,5 @@
 @doc raw"""
-    standard_walk(G::Oscar.IdealGens, start::MonomialOrdering, target::MonomialOrdering)
+    standard_walk(G::IdealGens, start::MonomialOrdering, target::MonomialOrdering)
 
 Compute a reduced Groebner basis w.r.t. to a monomial order by converting it using the Groebner Walk
 using the algorithm proposed by Collart, Kalkbrener & Mall (1997).
@@ -10,7 +10,7 @@ using the algorithm proposed by Collart, Kalkbrener & Mall (1997).
 - `start::MonomialOrdering`: monomial order to begin the conversion.
 """
 function standard_walk(
-  G::Oscar.IdealGens,
+  G::IdealGens,
   target::MonomialOrdering
 )
   start = ordering(G)
@@ -33,8 +33,8 @@ using the algorithm proposed by Collart, Kalkbrener & Mall (1997).
 - `target_weight::Vector{ZZRingElem}`: weight vector representing the target weight.
 """
 function standard_walk(
-  ::Type{Oscar.IdealGens},
-  G::Oscar.IdealGens,
+  ::Type{IdealGens},
+  G::IdealGens,
   target::MonomialOrdering,
   current_weight::Vector{ZZRingElem},
   target_weight::Vector{ZZRingElem};
@@ -62,17 +62,17 @@ function standard_walk(
 end
 
 standard_walk(
-  G::Oscar.IdealGens,
+  G::IdealGens,
   target::MonomialOrdering,
   current_weight::Vector{ZZRingElem},
   target_weight::Vector{ZZRingElem};
-) = gens(standard_walk(Oscar.IdealGens, G, target, current_weight, target_weight))
+) = gens(standard_walk(IdealGens, G, target, current_weight, target_weight))
 
 ###############################################################
 # The standard step is used for the strategies standard and perturbed.
 ###############################################################
 
-function standard_step(G::Oscar.IdealGens, w::Vector{ZZRingElem}, target::MonomialOrdering)
+function standard_step(G::IdealGens, w::Vector{ZZRingElem}, target::MonomialOrdering)
   current_ordering = ordering(G)
   next = weight_ordering(w, target)
 
@@ -86,9 +86,9 @@ function standard_step(G::Oscar.IdealGens, w::Vector{ZZRingElem}, target::Monomi
   @vprint :groebner_walk 10 "Lifted GB of initial forms: "
   @vprintln :groebner_walk 10 H
 
-  return Oscar.IdealGens(H, next)
+  return IdealGens(H, next)
 end
-standard_step(G::Oscar.IdealGens, w::Vector{Int}, T::Matrix{Int}) = standard_step(G, ZZ.(w), create_ordering(base_ring(G), w, T))
+standard_step(G::IdealGens, w::Vector{Int}, T::Matrix{Int}) = standard_step(G, ZZ.(w), create_ordering(base_ring(G), w, T))
 
 @doc raw"""
     initial_form(f::MPolyRingElem, w::Vector{ZZRingElem})
@@ -136,7 +136,7 @@ as described in Algorithm 5.2 on pg. 437 of "Using algebraic geometry" (Cox, Lit
 - current, a weight vector in the current Gröbner cone (corresponding to G)
 - target a target vector in the Gröbner cone of the target monomial order
 """
-function next_weight(G::Oscar.IdealGens, current::Vector{ZZRingElem}, target::Vector{ZZRingElem})
+function next_weight(G::IdealGens, current::Vector{ZZRingElem}, target::Vector{ZZRingElem})
   V = bounding_vectors(G)
   @vprint :groebner_walk 5 "Bounding vectors: "
   @vprintln :groebner_walk 5 V
@@ -165,7 +165,7 @@ Returns a list of "bounding vectors" of a Gröbner basis of `I`, as pairs of
 The bounding vectors form an H-description of the Gröbner cone. 
 (cf. "Using algebraic geometry", pg. 437 (CLO, 2005)) TODO: consistent citations, compare with OSCAR
 """
-function bounding_vectors(I::Oscar.IdealGens)
+function bounding_vectors(I::IdealGens)
   # TODO: Marked Gröbner basis
   gens_by_terms = terms.(I; ordering=ordering(I))
   

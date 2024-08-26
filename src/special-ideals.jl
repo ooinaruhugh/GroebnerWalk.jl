@@ -55,9 +55,9 @@ integer coefficients.
 function newell_patch_with_orderings(k::Field, n::Int=1)
   I = newell_patch(k, n)
   R = base_ring(I)
-  o1 = matrix_ordering(R, [1 1 1 0 0; 0 0 0 1 1; 0 0 0 1 0; 1 1 0 0 0; 1 0 0 0 0])
-  o2 = matrix_ordering(R, [0 0 0 1 1; 1 1 1 0 0; 1 1 0 0 0; 1 0 0 0 0; 0 0 0 1 0])
-  return I, o2, o1
+  os = matrix_ordering(R, [1 1 1 0 0; 0 0 0 1 1; 0 0 0 1 0; 1 1 0 0 0; 1 0 0 0 0])
+  ot = matrix_ordering(R, [0 0 0 1 1; 1 1 1 0 0; 1 1 0 0 0; 1 0 0 0 0; 0 0 0 1 0])
+  return I, ot, os
 end
 
 function get_newell_patch_generators(n::Int)

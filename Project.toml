@@ -7,6 +7,12 @@ version = "1.0.2"
 Oscar = "f1435218-dba5-11e9-1e4d-f1a5fab5fc13"
 PrecompileTools = "aea7be01-6a6a-4083-8856-8a6e6704d82a"
 
+[weakdeps]
+SagbiGbDetection = "1b6c37c6-8632-4342-94fc-bd2a198ddbb5"
+
+[extensions]
+GbDetectionExt = "SagbiGbDetection"
+
 [compat]
 Oscar = "1.0"
 julia = "1.10"

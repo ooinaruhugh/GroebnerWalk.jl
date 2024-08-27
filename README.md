@@ -1,6 +1,7 @@
 # Gröbner walk
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11065978.svg)](https://doi.org/10.5281/zenodo.11065978)
+[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://ooinaruhugh.github.io/GroebnerWalk.jl/dev)
 [![CI](https://github.com/ooinaruhugh/GroebnerWalk.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/ooinaruhugh/GroebnerWalk.jl/actions/workflows/CI.yml)
 
 GroebnerWalk.jl is a Julia package providing implementations of Gröbner walk algorithms

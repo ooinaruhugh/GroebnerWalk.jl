@@ -5,7 +5,7 @@ using Documenter, DocumenterCitations
 Base.print(io::IO, b::Base.Docs.Binding) = print(io, b.var)
 bib = CitationBibliography(
   joinpath(@__DIR__, "citations.bib");
-  style=:numeric
+  style=:alpha
 )
 
 s = read(joinpath(@__DIR__, "doc.main"), String)

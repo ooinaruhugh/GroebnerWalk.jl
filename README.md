@@ -4,7 +4,7 @@
 [![CI](https://github.com/ooinaruhugh/GroebnerWalk.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/ooinaruhugh/GroebnerWalk.jl/actions/workflows/CI.yml)
 
 GroebnerWalk.jl is a Julia package providing implementations of Gröbner walk algorithms
-for computing Gröbner bases over fields on top of Oscar.jl.
+for computing Gröbner bases over fields on top of [Oscar.jl](https://oscar-system.github.io/Oscar.jl).
 
 ## Usage
 
@@ -13,8 +13,8 @@ The following example demonstrates the usage. First, we define the ideal using `
 ```julia
 using Oscar
 
-R, (x,y) = QQ[:x, :y]                  # define ring ...
-I = ideal([y^4+ x^3-x^2+x,x^4])        # ... and ideal
+R, (x,y) = QQ[:x, :y]               # define ring ...
+I = ideal([y^4+ x^3-x^2+x,x^4])     # ... and ideal
 ```
 
 By default, `groebner_walk` starts with a Gröbner basis with respect to the default ordering on `R`
@@ -23,7 +23,7 @@ This is what the following code block accomplishes.
 ```julia
 using GroebnerWalk
 
-groebner_walk(I) # compute the Groebner basis
+groebner_walk(I)                    # compute the Groebner basis
 ```
 If one wants to specify `target` and `start` orderings explicitly, above function call needs to be written as follows.
 ```julia
@@ -33,22 +33,20 @@ groebner_walk(I, lex(R), default_ordering(R)) # compute the Groebner basis
 For more detailed usage instructions and examples, please refer to the [documentation](https://ooinaruhugh.github.io/GroebnerWalk.jl/).
 
 ## Status
-This repository represents the status of the code as a submission for MEGA 2024. It is slated for inclusion into OSCAR as experimental package.
-
 At the moment, the standard walk by Collart, Kalkbrener and Mall (1997) and the generic walk by Fukuda et al. (2007) are implemented.
 
 ## Documentation 
-
 The documentation for the GroebnerWalk.jl package can be found at <https://ooinaruhugh.github.io/GroebnerWalk.jl>
 
 ## Contacts
 The library is maintained by Kamillo Ferry (kafe (at) kafe (dot) dev) and Francesco Nowell (francesconowell (at) gmail (dot) com).
 
 ## Acknowledgement
-The current implementation is based on an implementation by Jordi Welp. We thank him for 
+The initial implementation was based on an implementation by Jordi Welp. We thank him for 
 laying the groundwork for this package.
 
 ## References
-- Collart, S., M. Kalkbrener, and D. Mall. ‘Converting Bases with the Gröbner Walk’. Journal of Symbolic Computation 24, no. 3–4 (September 1997): 465–69. https://doi.org/10.1006/jsco.1996.0145.
-- Fukuda, K., A. N. Jensen, N. Lauritzen, and R. Thomas. ‘The Generic Gröbner Walk’. Journal of Symbolic Computation 42, no. 3 (1 March 2007): 298–312. https://doi.org/10.1016/j.jsc.2006.09.004.
+- Collart, S., M. Kalkbrener, and D. Mall. [‘Converting Bases with the Gröbner Walk’](https://doi.org/10.1006/jsco.1996.0145). Journal of Symbolic Computation 24, no. 3–4 (1997): 465–69.
+- Cox, David A., John Little, and Donal O’Shea. [Using Algebraic Geometry](https://doi.org/10.1007/b138611). Vol. 185. Graduate Texts in Mathematics. New York: Springer-Verlag, 2005.
+- Fukuda, K., A. N. Jensen, N. Lauritzen, and R. Thomas. [‘The Generic Gröbner Walk’](https://doi.org/10.1016/j.jsc.2006.09.004). Journal of Symbolic Computation 42, no. 3 (2007): 298–312.
 

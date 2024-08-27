@@ -1,7 +1,7 @@
 # GroebnerWalk.jl
 
 [GroebnerWalk.jl](https://github.com/ooinaruhugh/GroebnerWalk.jl#readme) provides several variants of Gröbner walk algorithms for 
-converting Gröbner bases. For this, we make use of [OSCAR](https://www.oscar-system.org).
+converting Gröbner bases. For this, we make use of the computer algebra system [OSCAR](https://oscar-system.github.io/Oscar.jl).
 
 ## Installation
 For this package we require Julia version 1.10 or higher.

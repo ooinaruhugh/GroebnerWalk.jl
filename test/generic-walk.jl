@@ -1,4 +1,4 @@
-@testset "GenericWalk" begin
+@testset "Generic walk" begin
     R1, (x,y,z) = polynomial_ring(QQ, ["x", "y", "z"])
             
     I1 = ideal([x^2 + y*z, x*y + z^2]) 

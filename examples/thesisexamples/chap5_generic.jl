@@ -1,5 +1,5 @@
 using Oscar 
-using Oscar.GroebnerWalk
+using GroebnerWalk
 
 
 #The generic walk currently doesn't work (type conflicts)

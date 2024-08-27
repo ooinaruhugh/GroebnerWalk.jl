@@ -16,9 +16,9 @@ Compute a reduced Groebner basis w.r.t. to a monomial ordering by converting it 
 - `start::MonomialOrdering=:degrevlex`: monomial ordering to begin the conversion.
 - `perturbationDegree::Int=2`: the perturbation degree for the perturbed Walk.
 - `algorithm::Symbol=:standard`: strategy of the Groebner Walk. One can choose between:
-    - `standard`: Standard Walk [CLO05](@cite),
-    - `generic`: Generic Walk [FJLT07](@cite),
-    - `perturbed`: Perturbed Walk [AGK96](@cite).
+    - `standard`: Standard Walk [Cox.Little.OShea:2005](@cite),
+    - `generic`: Generic Walk [Fukuda.Jensen.ea:2007](@cite),
+    - `perturbed`: Perturbed Walk [Amrhein.Gloor.ea:1996](@cite).
 
 # Examples
 

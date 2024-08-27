@@ -1,7 +1,3 @@
-```@meta
-CurrentModule = Oscar
-```
-
 # Special ideals used for benchmarking
 
 We bundle a couple of special ideals useful for benchmarking of the Gröbner walk.

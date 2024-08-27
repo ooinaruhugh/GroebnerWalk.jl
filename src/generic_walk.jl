@@ -9,7 +9,7 @@ using the algorithm proposed by Collart, Kalkbrener & Mall (1997).
 - `target::MonomialOrdering`: monomial order one wants to compute a Groebner basis for.
 - `start::MonomialOrdering`: monomial order to begin the conversion.
 """
-function generic_walk(G::Oscar.IdealGens, start::MonomialOrdering, target::MonomialOrdering)
+function generic_walk(G::IdealGens, start::MonomialOrdering, target::MonomialOrdering)
   @vprintln :groebner_walk "Results for generic_walk"
   @vprintln :groebner_walk "Facets crossed for: "
 

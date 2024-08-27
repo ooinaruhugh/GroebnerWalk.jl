@@ -1,4 +1,8 @@
 [deps]
 BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
-GroebnerWalk = "6dc8777d-2b0c-4de5-9e3c-426c1820f6f9"
 Oscar = "f1435218-dba5-11e9-1e4d-f1a5fab5fc13"
+GroebnerWalk = "6dc8777d-2b0c-4de5-9e3c-426c1820f6f9"
+
+[compat]
+Oscar = "1.0"
+GroebnerWalk = "1.0"

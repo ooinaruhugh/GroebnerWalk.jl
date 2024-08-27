@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Usage · GroebnerWalk.jl</title><meta name="title" content="Usage · GroebnerWalk.jl"/><meta property="og:title" content="Usage · GroebnerWalk.jl"/><meta property="twitter:title" content="Usage · GroebnerWalk.jl"/><meta name="description" content="Documentation for GroebnerWalk.jl."/><meta property="og:description" content="Documentation for GroebnerWalk.jl."/><meta property="twitter:description" content="Documentation for GroebnerWalk.jl."/><script data-outdated-warner src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../search_index.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../">GroebnerWalk.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../">Home</a></li><li><span class="tocitem">Gröbner walk</span><ul><li class="is-active"><a class="tocitem" href>Usage</a></li><li><a class="tocitem" href="../special-ideals/">Special ideals used for benchmarking</a></li></ul></li><li><a class="tocitem" href="../references/">References</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Gröbner walk</a></li><li class="is-active"><a href>Usage</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Usage</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/ooinaruhugh/GroebnerWalk.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/ooinaruhugh/GroebnerWalk.jl/blob/main/docs/src/introduction.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="Usage"><a class="docs-heading-anchor" href="#Usage">Usage</a><a id="Usage-1"></a><a class="docs-heading-anchor-permalink" href="#Usage" title="Permalink"></a></h1><p>The Gröbner walk is an approach to reduce the computational complexity of Gröbner basis computations  that was originally proposed in [<a href="../references/#Amrhein.Gloor.ea:1997">AGK97</a>].</p><p>This is done by performing a reverse local search on the cones of the Gröbner fan. Then, a Gröbner basis is calculated for each encountered cone while reusing the generators obtained  from the previous cone.</p><p>The implemented algorithms may be accessed using the following function.</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="groebner_walk" href="#groebner_walk"><code>groebner_walk</code></a> — <span class="docstring-category">Function</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">groebner_walk(
+  I::MPolyIdeal, 
+  target::MonomialOrdering = lex(base_ring(I)),
+  start::MonomialOrdering = default_ordering(base_ring(I));
+  perturbation_degree = ngens(base_ring(I)),
+  algorithm::Symbol = :standard
+)</code></pre><p>Compute a reduced Groebner basis w.r.t. to a monomial ordering by converting it using the Groebner Walk.</p><p><strong>Arguments</strong></p><ul><li><code>I::MPolyIdeal</code>: ideal one wants to compute a Groebner basis for.</li><li><code>target::MonomialOrdering=:lex</code>: monomial ordering one wants to compute a Groebner basis for.</li><li><code>start::MonomialOrdering=:degrevlex</code>: monomial ordering to begin the conversion.</li><li><code>perturbationDegree::Int=2</code>: the perturbation degree for the perturbed Walk.</li><li><code>algorithm::Symbol=:standard</code>: strategy of the Groebner Walk. One can choose between:<ul><li><code>standard</code>: Standard Walk [<a href="../references/#Cox.Little.OShea:2005">CLO05</a>],</li><li><code>generic</code>: Generic Walk [<a href="../references/#Fukuda.Jensen.ea:2007">FJLT07</a>],</li><li><code>perturbed</code>: Perturbed Walk [<a href="../references/#Amrhein.Gloor.ea:1996">AGK96</a>].</li></ul></li></ul><p><strong>Examples</strong></p><pre><code class="language-julia-repl hljs">julia&gt; R,(x,y) = polynomial_ring(QQ, [&quot;x&quot;,&quot;y&quot;]);
+
+julia&gt; I = ideal([y^4+ x^3-x^2+x,x^4]);
+
+julia&gt; groebner_walk(I, lex(R))
+Gröbner basis with elements
+1 -&gt; x + y^12 - y^8 + y^4 r
+2 -&gt; y^16
+with respect to the ordering
+lex([x, y])
+
+julia&gt; groebner_walk(I, lex(R); algorithm=:perturbed)
+Gröbner basis with elements
+1 -&gt; x + y^12 - y^8 + y^4
+2 -&gt; y^16
+with respect to the ordering
+lex([x, y])
+
+julia&gt; set_verbosity_level(:groebner_walk, 1);
+julia&gt; groebner_walk(I, lex(R))
+Results for standard_walk
+Crossed Cones in: 
+ZZRingElem[1, 1]
+ZZRingElem[4, 3]
+ZZRingElem[4, 1]
+ZZRingElem[12, 1]
+Cones crossed: 4
+Gröbner basis with elements
+1 -&gt; x + y^12 - y^8 + y^4
+2 -&gt; y^16
+with respect to the ordering
+lex([x, y])
+
+julia&gt; groebner_walk(I, lex(R); algorithm=:perturbed)
+perturbed_walk results
+Crossed Cones in: 
+[4, 3]
+[4, 1]
+[5, 1]
+[12, 1]
+[1, 0]
+Cones crossed: 5
+Gröbner basis with elements
+1 -&gt; y^16
+2 -&gt; x + y^12 - y^8 + y^4
+with respect to the ordering
+matrix_ordering([x, y], [1 0; 0 1])</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/ooinaruhugh/GroebnerWalk.jl/blob/2a3f7230c224105f0d8b86fb1259233131f145f2/src/common.jl#L2-L74">source</a></section></article></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Home</a><a class="docs-footer-nextpage" href="../special-ideals/">Special ideals used for benchmarking »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.6.0 on <span class="colophon-date" title="Tuesday 27 August 2024 20:40">Tuesday 27 August 2024</span>. Using Julia version 1.10.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

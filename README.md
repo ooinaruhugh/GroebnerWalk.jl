@@ -1,6 +1,7 @@
 # Gröbner walk
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11065978.svg)](https://doi.org/10.5281/zenodo.11065978)
+[![CI](https://github.com/ooinaruhugh/GroebnerWalk.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/ooinaruhugh/GroebnerWalk.jl/actions/workflows/CI.yml)
 
 GroebnerWalk.jl is a Julia package providing implementations of Gröbner walk algorithms
 for computing Gröbner bases over fields on top of Oscar.jl.
@@ -8,7 +9,7 @@ for computing Gröbner bases over fields on top of Oscar.jl.
 ## Usage
 
 GroebnerWalk.jl provides its entire functionality through the function `groebner_walk`.
-The following example demonstrates the usage. First, we define the ideal Oscar.jl.
+The following example demonstrates the usage. First, we define the ideal using `Oscar`.
 ```julia
 using Oscar
 
@@ -20,7 +21,7 @@ By default, `groebner_walk` starts with a Gröbner basis with respect to the def
 and converts this into a Gröbner basis with respect to the lexicographic ordering on `R`.
 This is what the following code block accomplishes.
 ```julia
-using Oscar
+using GroebnerWalk
 
 groebner_walk(I) # compute the Groebner basis
 ```
@@ -29,10 +30,16 @@ If one wants to specify `target` and `start` orderings explicitly, above functio
 groebner_walk(I, lex(R), default_ordering(R)) # compute the Groebner basis
 ```
 
+For more detailed usage instructions and examples, please refer to the [documentation](https://ooinaruhugh.github.io/GroebnerWalk.jl/).
+
 ## Status
 This repository represents the status of the code as a submission for MEGA 2024. It is slated for inclusion into OSCAR as experimental package.
 
 At the moment, the standard walk by Collart, Kalkbrener and Mall (1997) and the generic walk by Fukuda et al. (2007) are implemented.
+
+## Documentation 
+
+The documentation for the GroebnerWalk.jl package can be found at <https://ooinaruhugh.github.io/GroebnerWalk.jl>
 
 ## Contacts
 The library is maintained by Kamillo Ferry (kafe (at) kafe (dot) dev) and Francesco Nowell (francesconowell (at) gmail (dot) com).

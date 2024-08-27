@@ -7,5 +7,11 @@ version = "1.0.1"
 BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
 Oscar = "f1435218-dba5-11e9-1e4d-f1a5fab5fc13"
 
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
+
 [compat]
 Oscar = "1.0"

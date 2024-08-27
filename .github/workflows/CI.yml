@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+  pull_request:
+  workflow_dispatch:
+
+# needed to allow julia-actions/cache to delete old caches that it has created
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        julia-version: 
+          - '1.10'
+          - '1.11-nightly'
+          - 'nightly'
+        julia-arch: [aarch64, x64]
+        os: [ubuntu-latest, macOS-latest]
+        exclude:
+          - os: ubuntu-latest
+            julia-arch: aarch64
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Setup julia"
+        uses: julia-actions/setup-julia@v1
+        with:
+          version: ${{ matrix.julia-version }}
+          arch: ${{ matrix.julia-arch }}
+      - uses: julia-actions/cache@v1
+      - name: "Build package"
+        uses: julia-actions/julia-buildpkg@v1
+      - uses: julia-actions/julia-runtest@v1
+        with:
+          annotate: ${{ matrix.julia-version == '1.10' }}
+          coverage: ${{ matrix.julia-version == '1.10' }}
+          depwarn: ${{ matrix.depwarn == 'depwarn=error' && 'error' || 'no' }}
+#      - name: "Process code coverage"
+#        if: matrix.julia-version == '1.10' && matrix.depwarn != 'depwarn=error'
+#        uses: julia-actions/julia-processcoverage@v1
+#        with:
+#          directories: src,experimental
+#      - name: "Upload coverage data to Codecov"
+#        if: matrix.julia-version == '1.10' && matrix.depwarn != 'depwarn=error'
+#        continue-on-error: true
+#        uses: codecov/codecov-action@v4
+#        with:
+#          token: ${{ secrets.CODECOV_TOKEN }}

@@ -29,19 +29,20 @@ julia> I = ideal([y^4+ x^3-x^2+x,x^4]);
 
 julia> groebner_walk(I, lex(R))
 Gröbner basis with elements
-1 -> x + y^12 - y^8 + y^4 r
+1 -> x + y^12 - y^8 + y^4 
 2 -> y^16
 with respect to the ordering
 lex([x, y])
 
-julia> groebner_walk(I, lex(R); algorithm=:perturbed)
+julia> groebner_walk(I, lex(R); algorithm=:generic)
 Gröbner basis with elements
-1 -> x + y^12 - y^8 + y^4
-2 -> y^16
+1 -> y^16
+2 -> x + y^12 - y^8 + y^4
 with respect to the ordering
 lex([x, y])
 
 julia> set_verbosity_level(:groebner_walk, 1);
+
 julia> groebner_walk(I, lex(R))
 Results for standard_walk
 Crossed Cones in: 
@@ -56,20 +57,6 @@ Gröbner basis with elements
 with respect to the ordering
 lex([x, y])
 
-julia> groebner_walk(I, lex(R); algorithm=:perturbed)
-perturbed_walk results
-Crossed Cones in: 
-[4, 3]
-[4, 1]
-[5, 1]
-[12, 1]
-[1, 0]
-Cones crossed: 5
-Gröbner basis with elements
-1 -> y^16
-2 -> x + y^12 - y^8 + y^4
-with respect to the ordering
-matrix_ordering([x, y], [1 0; 0 1])
 ```
 """
 function groebner_walk(

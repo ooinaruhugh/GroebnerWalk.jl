@@ -1,5 +1,6 @@
 using Oscar, GroebnerWalk
 using Test
+using Documenter
 
 @testset verbose=true "All tests" begin
   @testset "Compilation" begin
@@ -15,6 +16,10 @@ using Test
     Gg = groebner_walk(I, lex(R); algorithm=:generic) |> gens |> Oscar.IdealGens
     @test is_groebner_basis(Gg; ordering=lex(R))
   end
+
+  DocMeta.setdocmeta!(GroebnerWalk, :DocTestSetup, :(using Oscar, GroebnerWalk); recursive=true)
+  doctest(GroebnerWalk; manual = false)
+  set_verbosity_level(:groebner_walk, 0)
 
   include("standard-walk.jl")
   include("generic-walk.jl")

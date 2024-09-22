@@ -1,6 +1,8 @@
 module GroebnerWalk
 using Oscar
 
+using PrecompileTools: @setup_workload, @compile_workload
+
 import Oscar: 
   IdealGens,
   MonomialOrdering,
@@ -30,6 +32,17 @@ export newell_patch_with_orderings
 
 function __init__()
     add_verbosity_scope(:groebner_walk)
+end
+
+@setup_workload begin
+  __init__()
+  R, (x,y) = polynomial_ring(QQ, [:x,:y])
+  I = ideal([y^4+ x^3-x^2+x,x^4])
+
+  @compile_workload begin
+    groebner_walk(I, lex(R))
+    groebner_walk(I, lex(R); algorithm=:generic)
+  end
 end
 
 end

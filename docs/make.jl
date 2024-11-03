@@ -1,5 +1,7 @@
 using Oscar
 using GroebnerWalk
+const groebner_walk = GroebnerWalk.groebner_walk
+
 using Documenter, DocumenterCitations
 
 Base.print(io::IO, b::Base.Docs.Binding) = print(io, b.var)

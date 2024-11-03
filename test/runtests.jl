@@ -1,4 +1,5 @@
 using Oscar, GroebnerWalk
+const groebner_walk = GroebnerWalk.groebner_walk
 using Test
 using Documenter
 

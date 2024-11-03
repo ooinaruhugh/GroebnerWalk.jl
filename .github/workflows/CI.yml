@@ -8,7 +8,7 @@ on:
   pull_request:
   workflow_dispatch:
   schedule:
-    - cron: '@monthly'
+    - cron: '0 0 1 * *'
 
 # needed to allow julia-actions/cache to delete old caches that it has created
 permissions:

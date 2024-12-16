@@ -10,6 +10,22 @@
 julia&gt; I = ideal([y^4+ x^3-x^2+x,x^4]);
 
 julia&gt; groebner_walk(I, lex(R))
+Gröbner basis with elements
+  1: x + y^12 - y^8 + y^4
+  2: y^16
+with respect to the ordering
+  lex([x, y])
+
+julia&gt; groebner_walk(I, lex(R); algorithm=:generic)
+Gröbner basis with elements
+  1: y^16
+  2: x + y^12 - y^8 + y^4
+with respect to the ordering
+  lex([x, y])
+
+julia&gt; set_verbosity_level(:groebner_walk, 1);
+
+julia&gt; groebner_walk(I, lex(R))
 Results for standard_walk
 Crossed Cones in:
 ZZRingElem[1, 1]
@@ -22,17 +38,4 @@ Gröbner basis with elements
   2: y^16
 with respect to the ordering
   lex([x, y])
-
-julia&gt; groebner_walk(I, lex(R); algorithm=:generic)
-Results for generic_walk
-Facets crossed for:
-ZZRingElem[-3, 4]
-ZZRingElem[-1, 4]
-ZZRingElem[-1, 12]
-Cones crossed: 3
-Gröbner basis with elements
-  1: y^16
-  2: x + y^12 - y^8 + y^4
-with respect to the ordering
-  lex([x, y])
-</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/ooinaruhugh/GroebnerWalk.jl/blob/1c3dfac245a9a9fa0b37c5a1b1f6e5d309819019/src/common.jl#L2-L58">source</a></section></article></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Home</a><a class="docs-footer-nextpage" href="../special-ideals/">Special ideals used for benchmarking »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.8.0 on <span class="colophon-date" title="Monday 16 December 2024 14:49">Monday 16 December 2024</span>. Using Julia version 1.10.7.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/ooinaruhugh/GroebnerWalk.jl/blob/16d41b09ab68c55d873db9da85642301568f4236/src/common.jl#L2-L61">source</a></section></article></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Home</a><a class="docs-footer-nextpage" href="../special-ideals/">Special ideals used for benchmarking »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.8.0 on <span class="colophon-date" title="Monday 16 December 2024 14:58">Monday 16 December 2024</span>. Using Julia version 1.10.7.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

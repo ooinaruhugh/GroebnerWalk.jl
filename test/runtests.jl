@@ -18,7 +18,13 @@ using Documenter
     @test is_groebner_basis(Gg; ordering=lex(R))
   end
 
-  DocMeta.setdocmeta!(GroebnerWalk, :DocTestSetup, :(using Oscar, GroebnerWalk); recursive=true)
+  doctestsetup = quote
+    using Oscar
+    using GroebnerWalk
+
+    const groebner_walk = GroebnerWalk.groebner_walk
+  end
+  DocMeta.setdocmeta!(GroebnerWalk, :DocTestSetup, doctestsetup; recursive=true)
   doctest(GroebnerWalk; manual = false)
   set_verbosity_level(:groebner_walk, 0)
 

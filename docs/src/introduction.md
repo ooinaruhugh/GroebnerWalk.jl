@@ -1,3 +1,4 @@
+
 # Usage
 
 The Gröbner walk is an approach to reduce the computational complexity of Gröbner basis computations 

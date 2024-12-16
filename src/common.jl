@@ -54,22 +54,6 @@ Gröbner basis with elements
 with respect to the ordering
   lex([x, y])
 
-julia> set_verbosity_level(:groebner_walk, 1);
-
-julia> groebner_walk(I, lex(R))
-Results for standard_walk
-Crossed Cones in:
-ZZRingElem[1, 1]
-ZZRingElem[4, 3]
-ZZRingElem[4, 1]
-ZZRingElem[12, 1]
-Cones crossed: 4
-Gröbner basis with elements
-  1: x + y^12 - y^8 + y^4
-  2: y^16
-with respect to the ordering
-  lex([x, y])
-
 ```
 """
 function groebner_walk(

@@ -28,34 +28,47 @@ julia> R,(x,y) = polynomial_ring(QQ, ["x","y"]);
 julia> I = ideal([y^4+ x^3-x^2+x,x^4]);
 
 julia> groebner_walk(I, lex(R))
-Gröbner basis with elements
-1 -> x + y^12 - y^8 + y^4 
-2 -> y^16
-with respect to the ordering
-lex([x, y])
-
-julia> groebner_walk(I, lex(R); algorithm=:generic)
-Gröbner basis with elements
-1 -> y^16
-2 -> x + y^12 - y^8 + y^4
-with respect to the ordering
-lex([x, y])
-
-julia> set_verbosity_level(:groebner_walk, 1);
-
-julia> groebner_walk(I, lex(R))
 Results for standard_walk
-Crossed Cones in: 
+Crossed Cones in:
 ZZRingElem[1, 1]
 ZZRingElem[4, 3]
 ZZRingElem[4, 1]
 ZZRingElem[12, 1]
 Cones crossed: 4
 Gröbner basis with elements
-1 -> x + y^12 - y^8 + y^4
-2 -> y^16
+  1: x + y^12 - y^8 + y^4
+  2: y^16
 with respect to the ordering
-lex([x, y])
+  lex([x, y])
+
+julia> groebner_walk(I, lex(R); algorithm=:generic)
+Results for generic_walk
+Facets crossed for:
+ZZRingElem[-3, 4]
+ZZRingElem[-1, 4]
+ZZRingElem[-1, 12]
+Cones crossed: 3
+Gröbner basis with elements
+  1: y^16
+  2: x + y^12 - y^8 + y^4
+with respect to the ordering
+  lex([x, y])
+
+julia> set_verbosity_level(:groebner_walk, 1);
+
+julia> groebner_walk(I, lex(R))
+Results for standard_walk
+Crossed Cones in:
+ZZRingElem[1, 1]
+ZZRingElem[4, 3]
+ZZRingElem[4, 1]
+ZZRingElem[12, 1]
+Cones crossed: 4
+Gröbner basis with elements
+  1: x + y^12 - y^8 + y^4
+  2: y^16
+with respect to the ordering
+  lex([x, y])
 
 ```
 """

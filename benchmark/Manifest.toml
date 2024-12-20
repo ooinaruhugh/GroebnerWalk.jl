@@ -104,9 +104,9 @@ version = "1.6.0"
 
 [[deps.FLINT_jll]]
 deps = ["Artifacts", "GMP_jll", "JLLWrappers", "Libdl", "MPFR_jll", "OpenBLAS32_jll"]
-git-tree-sha1 = "4bde447e7bc6de73de36870fc942df02f4dd44b5"
+git-tree-sha1 = "9327ebef3e04034b2aa1b9c59869f36717843ce5"
 uuid = "e134572f-a0d5-539d-bddf-3cad8db41a82"
-version = "300.100.300+0"
+version = "300.100.301+0"
 
 [[deps.FileWatching]]
 uuid = "7b1f6079-737a-58dc-b8bc-7a2ca5c1b5ee"
@@ -147,10 +147,8 @@ uuid = "781609d7-10c4-51f6-84f2-b8444358ff6d"
 version = "6.2.1+6"
 
 [[deps.GroebnerWalk]]
-deps = ["Oscar", "PrecompileTools"]
-git-tree-sha1 = "fd06254eea819ffd46fbb5c4d6ff3c1f4439bc6c"
-repo-rev = "main"
-repo-url = ".."
+deps = ["Oscar"]
+git-tree-sha1 = "fe1c4ff7aa3dee062a5257d0a4ae332b6abc7c0d"
 uuid = "6dc8777d-2b0c-4de5-9e3c-426c1820f6f9"
 version = "1.0.2"
 

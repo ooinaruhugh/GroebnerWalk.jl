@@ -1,8 +1,4 @@
 using Oscar
-<<<<<<< Updated upstream
-using GroebnerWalk
-using BenchmarkTools
-=======
 #using GroebnerWalk
 #using BenchmarkTools
 
@@ -43,14 +39,11 @@ function benchmark_with_timeout(f, timeout)
 
     return result
 end
->>>>>>> Stashed changes
 
 include("cyclic.jl")
 include("agk.jl")
 include("tran3.3.jl")
 
-<<<<<<< Updated upstream
-=======
 const MAX_TIME = 3
 const N_SAMPLES = 3
 const N_EVALS = 3
@@ -79,7 +72,6 @@ const N_EVALS = 3
 #  println("\t\t\t[done]")
 #end
 
->>>>>>> Stashed changes
 function benchmark(
   io,
   name::String,
@@ -87,16 +79,6 @@ function benchmark(
   target::MonomialOrdering,
   start::MonomialOrdering
 )
-<<<<<<< Updated upstream
-  print(io, name, ","); flush(io)
-  t = @belapsed groebner_walk($I, $target, $start; algorithm=:standard) seconds=20000 samples=10
-  print(io, t, ","); flush(io)
-  t = @belapsed groebner_walk($I, $target, $start; algorithm=:generic) seconds=20000 samples=10
-  print(io, t, ","); flush(io)
-  t = @belapsed groebner_walk($I, $target, $start; algorithm=:perturbed) seconds=20000 samples=10
-  print(io, t, ","); flush(io)
-  t = @belapsed groebner_basis($I; ordering=$target) seconds=20000 samples=10
-=======
   print("Benchmarking $(name)...")
 
   print(io, gethostname(), ",")
@@ -112,7 +94,7 @@ function benchmark(
     J = ideal(gens(I))
     groebner_basis(J; ordering=target) 
   end, MAX_TIME)
->>>>>>> Stashed changes
+
   println(io, t); flush(io)
 end
 

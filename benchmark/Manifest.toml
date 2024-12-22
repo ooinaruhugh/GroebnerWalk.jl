@@ -2,7 +2,7 @@
 
 julia_version = "1.10.7"
 manifest_format = "2.0"
-project_hash = "e94af3d54394bcae2f69dfe461dd19550410402b"
+project_hash = "252e00224410c36c45d0871fe57fdd34cbdb4387"
 
 [[deps.ASL_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
@@ -175,9 +175,9 @@ uuid = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
 
 [[deps.Ipopt_jll]]
 deps = ["ASL_jll", "Artifacts", "CompilerSupportLibraries_jll", "JLLWrappers", "Libdl", "MUMPS_seq_jll", "SPRAL_jll", "libblastrampoline_jll"]
-git-tree-sha1 = "a0950d209a055b3adb6d29ade5cbdf005a6bd290"
+git-tree-sha1 = "4f55ad688c698a4f77d892a1cb673f7e8a30f178"
 uuid = "9cc047cb-c261-5740-88fc-0cf96f7bdcc7"
-version = "300.1400.1600+0"
+version = "300.1400.1700+0"
 
 [[deps.IrrationalConstants]]
 git-tree-sha1 = "630b497eafcc20001bba38a4651b327dcfc491d2"
@@ -293,9 +293,9 @@ version = "4.2.0+1"
 
 [[deps.MUMPS_seq_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "JLLWrappers", "Libdl", "METIS_jll", "libblastrampoline_jll"]
-git-tree-sha1 = "85047ac569761e3387717480a38a61d2a67df45c"
+git-tree-sha1 = "0eab12f94948ca67908aec14b9f2ebefd17463fe"
 uuid = "d7ed1dd3-d0ae-5e8e-bfb4-87a502085b8d"
-version = "500.700.300+0"
+version = "500.700.301+0"
 
 [[deps.MacroTools]]
 deps = ["Markdown", "Random"]
@@ -521,9 +521,9 @@ version = "2.5.0"
 
 [[deps.StaticArrays]]
 deps = ["LinearAlgebra", "PrecompileTools", "Random", "StaticArraysCore"]
-git-tree-sha1 = "777657803913ffc7e8cc20f0fd04b634f871af8f"
+git-tree-sha1 = "7c01731da8ab6d3094c4d44c9057b00932459255"
 uuid = "90137ffa-7385-5640-81b9-e52037218182"
-version = "1.9.8"
+version = "1.9.9"
 
     [deps.StaticArrays.extensions]
     StaticArraysChainRulesCoreExt = "ChainRulesCore"
@@ -653,9 +653,9 @@ version = "0.3.3+0"
 
 [[deps.msolve_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "FLINT_jll", "GMP_jll", "JLLWrappers", "LLVMOpenMP_jll", "Libdl", "MPFR_jll"]
-git-tree-sha1 = "31d4b30cc109d1e49293ce94d468a73932093aac"
+git-tree-sha1 = "382191ffa0d6d873793b04659c3a99e6a332caca"
 uuid = "6d01cc9a-e8f6-580e-8c54-544227e08205"
-version = "0.700.300+0"
+version = "0.700.301+0"
 
 [[deps.nauty_jll]]
 deps = ["Artifacts", "GMP_jll", "JLLWrappers", "Libdl", "Pkg"]
@@ -693,6 +693,6 @@ version = "0.3.3+1"
 
 [[deps.snappy_jll]]
 deps = ["Artifacts", "JLLWrappers", "LZO_jll", "Libdl", "Lz4_jll", "Zlib_jll"]
-git-tree-sha1 = "d34e37153e4c03205bde2f0f8ada6cced8c83978"
+git-tree-sha1 = "a6c92533edec9755b3c1083b028da19a41f92e25"
 uuid = "fe1e1685-f7be-5f59-ac9f-4ca204017dfd"
-version = "1.2.1+0"
+version = "1.2.1+1"

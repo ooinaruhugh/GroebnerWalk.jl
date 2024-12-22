@@ -37,7 +37,7 @@ for i in \
   katsura6,generic,QQ \
   katsura6,generic,Fp \
   simple,oscar,QQ \
-  simple,oscar,Fp \
+  simple,oscar,Fp 
   cyclic5,oscar,QQ \
   cyclic5,oscar,Fp \
   cyclic6,oscar,QQ \
@@ -60,6 +60,5 @@ do
   BENCHMARK_PID=$!
 
   wait -n
-  kill -INT $BENCHMARK_PID
-  kill `jobs -p`
+  kill -INT `jobs -p`
 done

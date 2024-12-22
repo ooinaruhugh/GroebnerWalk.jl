@@ -59,7 +59,10 @@ open("results.csv", "a") do io
     elseif algorithm == "generic"
       global t = @belapsed groebner_walk(I, target, start; algorithm=:generic) samples=N_SAMPLES evals=N_EVALS
     elseif algorithm == "oscar"
-      global t = @belapsed groebner_basis(I; ordering=target) samples=N_SAMPLES evals=N_EVALS
+      global t = @belapsed begin
+        Io = ideal(gens(I))
+        groebner_basis(Io; ordering=target) 
+      end samples=N_SAMPLES evals=N_EVALS
     end
   catch e
     println(e)

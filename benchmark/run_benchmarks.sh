@@ -37,7 +37,7 @@ for i in \
   katsura6,generic,QQ \
   katsura6,generic,Fp \
   simple,oscar,QQ \
-  simple,oscar,Fp 
+  simple,oscar,Fp \
   cyclic5,oscar,QQ \
   cyclic5,oscar,Fp \
   cyclic6,oscar,QQ \
@@ -57,8 +57,18 @@ do
 
   sleep 3060 &
   julia benchmark.jl $1 $2 $3 3000 &
-  BENCHMARK_PID=$!
 
   wait -n
-  kill -INT `jobs -p`
+
+  RUNNING_PID=`jobs -p`
+  RUNNING=`basename $(ps -p $RUNNING_PID -o command=)`
+
+  if [ "$RUNNING" = julia ]; then
+    kill -INT $RUNNING_PID
+    echo "Timeout"
+  elif [ "$RUNNING" = sleep ]; then
+    kill $RUNNING_PID
+  fi
+
+  wait $(jobs -p)
 done

@@ -1,7 +1,7 @@
-#!/opt/homebrew/bin/bash
+#!/bin/bash
 
 IFS=","
-#TIMEOUT=5000
+TIMEOUT=3000
 
 for i in \
   simple,standard,QQ \
@@ -55,20 +55,6 @@ for i in \
 do
   set -- $i
 
-  sleep 3060 &
-  julia benchmark.jl $1 $2 $3 3000 &
-
-  wait -n
-
-  RUNNING_PID=`jobs -p`
-  RUNNING=`basename $(ps -p $RUNNING_PID -o command=)`
-
-  if [ "$RUNNING" = julia ]; then
-    kill -INT $RUNNING_PID
-    echo "Timeout"
-  elif [ "$RUNNING" = sleep ]; then
-    kill $RUNNING_PID
-  fi
-
-  wait $(jobs -p)
+  timeout --foreground --kill-after=10s $TIMEOUT julia benchmark.jl $1 $2 $3 $TIMEOUT
+  echo -e "\n" >> results.csv
 done

@@ -56,5 +56,7 @@ do
   set -- $i
 
   timeout --foreground --kill-after=10s $TIMEOUT julia benchmark.jl $1 $2 $3 $TIMEOUT
-  echo -e "\n" >> results.csv
+  if [ $? -eq 124 ]; then
+    echo -e "NaN" >> results.csv
+  fi
 done

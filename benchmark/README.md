@@ -20,4 +20,8 @@ The script assumes `timeout` from GNU coreutils 8.32. On macOS for example, one 
 install GNU coreutils first. In that case, `timeout` might be available as `gtimeout`.
 Either define an alias before executing `run_benchmarks.sh` or edit the script.
 
-
+## Explanations for `results.csv`
+The benchmarks were run on two machines, identified by their hostname. In both cases we used Julia 1.10.7 and `OSCAR` 1.2.2.
+For our runs of the benchmarks, we restricted the computations to `1/2 * MAX_RAM`.
+- `amenominakanushi` refers to a MacBook Pro with a 2,4 GHz Apple M2 Max, 32 GB of memory running macOS 15.2.
+- `schildow` refers to a Linux machine with a 3.30GHz Intel(R) Core(TM) i5-4590, 16 GB of memory running openSUSE Leap 15.6.

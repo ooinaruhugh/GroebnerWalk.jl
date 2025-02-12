@@ -55,8 +55,10 @@ for i in \
 do
   set -- $i
 
-  timeout --foreground --kill-after=10s $TIMEOUT julia benchmark.jl $1 $2 $3 $TIMEOUT
+  timeout --foreground --kill-after=10s $TIMEOUT julia benchmark.jl $1 $2 $3 3600
   if [ $? -eq 124 ]; then
     echo -e "NaN" >> results.csv
+  else
+    echo >> results.csv
   fi
 done

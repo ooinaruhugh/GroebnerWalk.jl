@@ -30,12 +30,18 @@ for i in \
   tran3.3,generic,Fp \
   newellp1,standard,QQ \
   newellp1,standard,Fp \
-  newellp1,generic,QQ \
-  newellp1,generic,Fp \
   katsura6,standard,QQ \
   katsura6,standard,Fp \
   katsura6,generic,QQ \
   katsura6,generic,Fp \
+  katsura7,standard,QQ \
+  katsura7,standard,Fp \
+  katsura7,generic,QQ \
+  katsura7,generic,Fp \
+  katsura8,standard,QQ \
+  katsura8,standard,Fp \
+  katsura8,generic,QQ \
+  katsura8,generic,Fp \
   simple,oscar,QQ \
   simple,oscar,Fp \
   cyclic5,oscar,QQ \
@@ -51,7 +57,13 @@ for i in \
   cyclic7,oscar,QQ \
   cyclic7,oscar,Fp \
   katsura6,oscar,QQ \
-  katsura6,oscar,Fp 
+  katsura6,oscar,Fp \
+  katsura7,oscar,QQ \
+  katsura7,oscar,Fp \
+  katsura8,oscar,QQ \
+  katsura8,oscar,Fp \
+  newellp1,generic,QQ \
+  newellp1,generic,Fp 
 do
   set -- $i
 

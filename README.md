@@ -7,6 +7,9 @@
 GroebnerWalk.jl is a Julia package providing implementations of Gröbner walk algorithms
 for computing Gröbner bases over fields on top of [Oscar.jl](https://oscar-system.github.io/Oscar.jl).
 
+Most of the functionality of this package is also contained in Oscar.jl. This version of the package serves as testbed for experiments and improvements
+independently from the development cycle of Oscar.jl.
+
 ## Usage
 
 GroebnerWalk.jl provides its entire functionality through the function `groebner_walk`.
@@ -22,10 +25,11 @@ By default, `groebner_walk` starts with a Gröbner basis with respect to the def
 and converts this into a Gröbner basis with respect to the lexicographic ordering on `R`.
 This is what the following code block accomplishes.
 ```julia
-using GroebnerWalk
-
 groebner_walk(I)                    # compute the Groebner basis
 ```
+By default, this package does not export `groebner_walk` to avoid name clashes with the version in Oscar.jl. 
+The implementation in this package is available under `GroebnerWalk.groebner_walk`.
+
 If one wants to specify `target` and `start` orderings explicitly, above function call needs to be written as follows.
 ```julia
 groebner_walk(I, lex(R), default_ordering(R)) # compute the Groebner basis

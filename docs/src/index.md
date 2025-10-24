@@ -25,6 +25,7 @@ Once you have installed the package, you can start using it in your Julia code. 
 
 ```julia
 using Oscar, GroebnerWalk
+const groebner_walk = GroebnerWalk.groebner_walk
 
 R, (x,y) = QQ[:x, :y]            # define ring ...
 I = ideal([y^4+ x^3-x^2+x,x^4])  # ... and ideal

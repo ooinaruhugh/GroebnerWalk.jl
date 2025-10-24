@@ -4,7 +4,6 @@
       I::MPolyIdeal, 
       target::MonomialOrdering = lex(base_ring(I)),
       start::MonomialOrdering = default_ordering(base_ring(I));
-      perturbation_degree = ngens(base_ring(I)),
       algorithm::Symbol = :standard
     )
 
@@ -14,15 +13,21 @@ Compute a reduced Groebner basis w.r.t. to a monomial ordering by converting it 
 - `I::MPolyIdeal`: ideal one wants to compute a Groebner basis for.
 - `target::MonomialOrdering=:lex`: monomial ordering one wants to compute a Groebner basis for.
 - `start::MonomialOrdering=:degrevlex`: monomial ordering to begin the conversion.
-- `perturbationDegree::Int=2`: the perturbation degree for the perturbed Walk.
 - `algorithm::Symbol=:standard`: strategy of the Groebner Walk. One can choose between:
     - `standard`: Standard Walk [Cox.Little.OShea:2005](@cite),
-    - `generic`: Generic Walk [Fukuda.Jensen.ea:2007](@cite),
-    - `perturbed`: Perturbed Walk [Amrhein.Gloor.ea:1996](@cite).
+    - `generic`: Generic Walk [Fukuda.Jensen.ea:2007](@cite).
 
 # Examples
 
 ```jldoctest
+julia> using Oscar
+  ___   ___   ___    _    ____
+ / _ \ / __\ / __\  / \  |  _ \  | Combining and extending ANTIC, GAP,
+| |_| |\__ \| |__  / ^ \ |  ´ /  | Polymake and Singular
+ \___/ \___/ \___//_/ \_\|_|\_\  | Type "?Oscar" for more information
+o--------o-----o-----o--------o  | Documentation: https://docs.oscar-system.org
+  S Y M B O L I C   T O O L S    | Version 1.4.1
+
 julia> R,(x,y) = polynomial_ring(QQ, ["x","y"]);
 
 julia> I = ideal([y^4+ x^3-x^2+x,x^4]);
